@@ -5,6 +5,38 @@
     <title>Index</title>
 </head>
 <body>
-<h1>hello Index</h1>
+<h1>添加用户</h1>
+<form method="post" action="/blog/userinfo">
+    <p>姓名<input name="username" type="text"></p>
+    <p>性别<input name="sex" type="text"></p>
+    <p>年龄<input name="age" type="text"></p>
+    <p><input type="submit" value="submit" /></p>
+</form>
+<hr>
+<div id="dd">数据展示</div>
+<table border="1px">
+    <thead>
+        <tr>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>年龄</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in userlist %}
+        <tr>
+            <td>{{ i.username }}</td>
+            <td>{{ i.sex }}</td>
+            <td>{{ i.age }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<script src="/static/js/jquery-2.1.1.js"></script>
+<script>
+    $("#dd").css("color","red")
+</script>
 </body>
 </html>
